@@ -1,22 +1,35 @@
+
 import { useParams } from 'next/navigation'
 import React from 'react'
-async function getProductDetails(id) {
+
+
+export async function getProductDetails(id) {
   const res = await fetch(`https://api.escuelajs.co/api/v1/products/${id}`)
   const data = await res.json()
   return data
 
 }
-export async function generateMetadata({ params }) {
-  const { id } = params
-  const product = await getProductDetails(id)
+
+export async function generateMetadata({ params, searchParams }, parent) {
+  // read route params
+  const id = params.id;
+ 
+  // fetch data
+  const product = await fetch(`https://api.escuelajs.co/api/v1/products/${id}`)
+  const data = await product.json()
+  
   return {
-    title: product.title,
-    description: product.description,
-    metaBanner: product.images[0],
-    metaBase: new URL("https://escuelajs.com/")
-  }
+    title: data.title,
+    description: data.description,
+    image: data.images[0],
+    
+   
+  };
 }
+
+
 const page = async ({ params }) => {
+  
 
   // view detial
   const { id } = params
