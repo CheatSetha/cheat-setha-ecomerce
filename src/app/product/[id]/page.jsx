@@ -40,7 +40,7 @@ const page = async ({ params }) => {
 
 
   return (
-    <div className="card lg:card-side bg-base-100 shadow-xl w-[50%] mx-auto my-10">
+    <div className="card lg:card-side bg-base-100 shadow-xl w-[90%] mx-auto my-10">
       <figure><img src={product.images ? product.images : "/images/1.webp"} alt="Album" /></figure>
       <div className="card-body">
         <h2 className="card-title">{product.title ? product.title : "Loading..."}</h2>
