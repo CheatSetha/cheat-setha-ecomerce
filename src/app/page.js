@@ -27,7 +27,7 @@ export async function getCategory() {
 }
 
 export async function getuser() {
-	const res = await fetch("https://api.escuelajs.co/api/v1/users")
+	const res = await fetch("https://api.escuelajs.co/api/v1/users?limit=8")
 	const data = await res.json()
 	return data
 }
