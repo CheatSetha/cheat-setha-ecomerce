@@ -31,7 +31,7 @@ const Card = ({ id, title, desc, price, img }) => {
 	}
 
 	return (
-		<div className='card max-w-xs bg-base-100 shadow-xl'>
+		<div className='card md:max-w-xs bg-base-100 shadow-xl'>
 			<MdOutlineReorder
 				onClick={setShowModal}
 				className='absolute right-1 top-1 text-sky-950 text-2xl cursor-pointer'
@@ -54,7 +54,7 @@ const Card = ({ id, title, desc, price, img }) => {
 			<Link href={`/product/${id}`}>
 				<figure>
 					<img
-						className='rounded-t-2xl max-w-xs'
+						className='rounded-t-2xl md:max-w-xs'
 						src={img ? img : "/images/1.webp"}
 						alt='Shoes'
 					/>

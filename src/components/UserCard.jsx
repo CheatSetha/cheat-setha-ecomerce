@@ -2,7 +2,7 @@ import React from "react";
 
 const UserCard = ({name, role,avatar,email}) => {
   return (
-    <div className="card w-72 bg-base-100 shadow-xl">
+    <div className="card md:w-72 bg-base-100 shadow-xl">
       <div className="card-body">
         <div className="avatar flex justify-center">
           <div className="w-24 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">

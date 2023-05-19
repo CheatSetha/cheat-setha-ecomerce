@@ -1,9 +1,11 @@
 
+"use client"
 import Card from "@/components/Card";
 
 import CategoryCard from "@/components/CategoryCard";
 import UserCard from "@/components/UserCard";
 import Link from "next/link";
+import { useState } from "react";
 
 
 // set static meta data
@@ -38,23 +40,26 @@ export async function getuser() {
 export function sortProduct(products) {
   return products.sort((a, b) => b.id - a.id).slice(0, 20);
 }
-// handle search product by name 
-export function searchProduct(query) {
-  const res = fetch(`https://api.escuelajs.co/api/v1/products?name=${query}`);
-  const data = res.json();
-  return data;
- 
-}
+
+
 
 
 export default async function Home() {
+
+
  
 //  call function
   const products = await fetchData();
   const categories = await getCategory();
   const users = await getuser();
 
+
   const sortedProducts = sortProduct(products);
+
+  // filter product by name
+  // const filteredProducts = products.filter((p)=>
+  // p.title && p.title.toLowerCase().includes(query.toLowerCase())
+  // )
   
   return (
     <main className="w-[90%] mx-auto">
@@ -80,8 +85,8 @@ export default async function Home() {
       {/* list product  */}
 	  <h1 className="font-bold text-2xl my-5">Our Products</h1>
 
-      <div className="flex justify-between">
-        <div className="flex flex-wrap   mx-auto gap-3 w-10/12">
+      <div className="flex flex-wrap justify-between">
+        <div className="flex flex-wrap   mx-auto gap-3 w-full md:w-10/12">
           {sortedProducts.map((product) => (
             <Card
               key={product.id}
@@ -95,7 +100,7 @@ export default async function Home() {
           ))}
         </div>
 
-        <div className="w-2/12 space-y-5">
+        <div className=" w-full md:w-2/12 space-y-5">
           <h1 className="text-center font-bold text-2xl">Top users</h1>
           {users.map((u) => (
             <UserCard
