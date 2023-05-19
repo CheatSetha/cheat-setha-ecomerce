@@ -15,13 +15,13 @@ export async function generateMetadata({ params, searchParams }, parent) {
   const id = params.id;
  
   // fetch data
-  const product = await fetch(`https://api.escuelajs.co/api/v1/products/${id}`)
-  const data = await product.json()
+  const product = await getProductDetails(id)
+ 
   
   return {
-    title: data.title,
-    description: data.description,
-    image: data.images[0],
+    title: product.title,
+    description: product.description,
+    image: product.images[0],
     
    
   };
