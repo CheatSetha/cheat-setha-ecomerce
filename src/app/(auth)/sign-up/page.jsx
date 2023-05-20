@@ -1,5 +1,6 @@
 "use client";
 
+import Loading from "@/app/Loading";
 import axios from "axios";
 import { ErrorMessage, Field, Form, Formik, useFormik } from "formik";
 import React, { useEffect, useState } from "react";
@@ -109,26 +110,8 @@ export default function Page() {
     <div className="hero min-h-screen bg-base-200">
       <div className="hero-content flex-col lg:flex-row-reverse">
         {isLoading ? (
-          <>
-            <div className="w-full h-[100vh] bg-slate-900 absolute z-50 opacity-40"></div>
-            {/* <!-- SOLAR SYSTEM --> */}
-            <div className="flex justify-center items-center h-[70vh] absolute">
-              <div class="spinner-box">
-                <div class="solar-system">
-                  <div class="earth-orbit orbit">
-                    <div class="planet earth"></div>
-                    <div class="venus-orbit orbit">
-                      <div class="planet venus"></div>
-                      <div class="mercury-orbit orbit">
-                        <div class="planet mercury"></div>
-                        <div class="sun"></div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </>
+        
+            <Loading />
         ) : null}
         <div className="text-center lg:text-left">
           <h1 className="text-5xl font-bold mb-5">Login now!</h1>

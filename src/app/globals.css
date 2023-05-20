@@ -19,319 +19,334 @@ body{
   }
 }
 
-@keyframes spin3D {
-  from {
-    transform: rotate3d(.5,.5,.5, 360deg);
+
+
+/* loading spinner */
+@keyframes snow {
+  0% {
+    opacity: 0;
+    transform: translateY(0px);
   }
-  to{
-    transform: rotate3d(0deg);
+
+  20% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(650px);
   }
 }
 
-@keyframes configure-clockwise {
+@keyframes astronaut {
   0% {
-    transform: rotate(0);
+    transform: rotate(0deg);
   }
-  25% {
-    transform: rotate(90deg);
-  }
-  50% {
-    transform: rotate(180deg);
-  }
-  75% {
-    transform: rotate(270deg);
-  }
+
   100% {
     transform: rotate(360deg);
   }
 }
 
-@keyframes configure-xclockwise {
-  0% {
-    transform: rotate(45deg);
-  }
-  25% {
-    transform: rotate(-45deg);
-  }
-  50% {
-    transform: rotate(-135deg);
-  }
-  75% {
-    transform: rotate(-225deg);
-  }
-  100% {
-    transform: rotate(-315deg);
-  }
-}
-
-@keyframes pulse {
-  from {
-    opacity: 1;
-    transform: scale(1);
-  }
-  to {
-    opacity: .25;
-    transform: scale(.75);
-  }
-}
-
-/* GRID STYLING */
-
-* {
-  box-sizing: border-box;
-}
-
-body {
-  min-height: 100vh;
-  background-color: #1d2630;
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  align-items: flex-start;
-}
-
-.spinner-box {
-  width: 300px;
-  height: 300px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: transparent;
-}
-
-/* SPINNING CIRCLE */
-
-.leo-border-1 {
+.box-of-star1,
+.box-of-star2,
+.box-of-star3,
+.box-of-star4 {
+  width: 100%;
   position: absolute;
-  width: 150px;
-  height: 150px;
-  padding: 3px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 50%;
-  background: rgb(63,249,220);
-  background: linear-gradient(0deg, rgba(63,249,220,0.1) 33%, rgba(63,249,220,1) 100%);
-  animation: spin3D 1.8s linear 0s infinite;
+  z-index: 10;
+  left: 0;
+  top: 0;
+  transform: translateY(0px);
+  height: 700px;
 }
 
-.leo-core-1 {
-  width: 100%;
-  height: 100%;
-  background-color: #37474faa;
-  border-radius: 50%;
+.box-of-star1 {
+  animation: snow 5s linear infinite;
 }
 
-.leo-border-2 {
+.box-of-star2 {
+  animation: snow 5s -1.64s linear infinite;
+}
+
+.box-of-star3 {
+  animation: snow 5s -2.30s linear infinite;
+}
+
+.box-of-star4 {
+  animation: snow 5s -3.30s linear infinite;
+}
+
+.star {
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background-color: #FFF;
   position: absolute;
-  width: 150px;
-  height: 150px;
-  padding: 3px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 50%;
-  background: rgb(251, 91, 83);
-  background: linear-gradient(0deg, rgba(251, 91, 83, 0.1) 33%, rgba(251, 91, 83, 1) 100%);
-  animation: spin3D 2.2s linear 0s infinite;
+  z-index: 10;
+  opacity: 0.7;
 }
 
-.leo-core-2 {
-  width: 100%;
-  height: 100%;
-  background-color: #1d2630aa;
+.star:before {
+  content: "";
+  width: 6px;
+  height: 6px;
   border-radius: 50%;
-}
-
-/* ALTERNATING ORBITS */
-
-.circle-border {
-  width: 150px;
-  height: 150px;
-  padding: 3px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 50%;
-  background: rgb(63,249,220);
-  background: linear-gradient(0deg, rgba(63,249,220,0.1) 33%, rgba(63,249,220,1) 100%);
-  animation: spin .8s linear 0s infinite;
-}
-
-.circle-core {
-  width: 100%;
-  height: 100%;
-  background-color: #1d2630;
-  border-radius: 50%;
-}
-
-/* X-ROTATING BOXES */
-
-.configure-border-1 {
-  width: 115px;
-  height: 115px;
-  padding: 3px;
+  background-color: #FFF;
   position: absolute;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: #f50c00;
-  animation: configure-clockwise 3s ease-in-out 0s infinite alternate;
+  z-index: 10;
+  top: 80px;
+  left: 70px;
+  opacity: .7;
 }
 
-.configure-border-2 {
-  width: 115px;
-  height: 115px;
-  padding: 3px;
-  left: -115px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: rgb(63,249,220);
-  transform: rotate(45deg);
-  animation: configure-xclockwise 3s ease-in-out 0s infinite alternate;
-}
-
-.configure-core {
-  width: 100%;
-  height: 100%;
-  background-color: #1d2630;
-}
-
-/* PULSE BUBBLES */
-
-.pulse-container {
-  width: 120px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.pulse-bubble {
-  width: 20px;
-  height: 20px;
+.star:after {
+  content: "";
+  width: 8px;
+  height: 8px;
   border-radius: 50%;
-  background-color: #00ffd9;
+  background-color: #FFF;
+  position: absolute;
+  z-index: 10;
+  top: 8px;
+  left: 170px;
+  opacity: .9;
 }
 
-.pulse-bubble-1 {
-    animation: pulse .4s ease 0s infinite alternate;
-}
-.pulse-bubble-2 {
-    animation: pulse .4s ease .2s infinite alternate;
-}
-.pulse-bubble-3 {
-    animation: pulse .4s ease .4s infinite alternate;
+.star-position1 {
+  top: 30px;
+  left: 20px;
 }
 
-/* SOLAR SYSTEM */
+.star-position2 {
+  top: 110px;
+  left: 250px;
+}
 
-.solar-system {
+.star-position3 {
+  top: 60px;
+  left: 570px;
+}
+
+.star-position4 {
+  top: 120px;
+  left: 900px;
+}
+
+.star-position5 {
+  top: 20px;
+  left: 1120px;
+}
+
+.star-position6 {
+  top: 90px;
+  left: 1280px;
+}
+
+.star-position7 {
+  top: 30px;
+  left: 1480px;
+}
+
+.astronaut {
   width: 250px;
-  height: 250px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  height: 300px;
+  position: absolute;
+  z-index: 11;
+  top: calc(50% - 150px);
+  left: calc(50% - 125px);
+  animation: astronaut 5s linear infinite;
 }
 
-.orbit {
-	position: relative;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	border: 1px solid #0080ff;
-	border-radius: 50%;
-} 
-
-.earth-orbit {
-	width: 165px;
-	height: 165px;
-  -webkit-animation: spin 12s linear 0s infinite;
+.schoolbag {
+  width: 100px;
+  height: 150px;
+  position: absolute;
+  z-index: 1;
+  top: calc(50% - 75px);
+  left: calc(50% - 50px);
+  background-color: #94b7ca;
+  border-radius: 50px 50px 0 0 / 30px 30px 0 0;
 }
 
-.venus-orbit {
-	width: 120px;
-	height: 120px;
-  -webkit-animation: spin 7.4s linear 0s infinite;
-}
-
-.mercury-orbit {
-	width: 90px;
-	height: 90px;
-  -webkit-animation: spin 3s linear 0s infinite;
-}
-
-.planet {
-	position: absolute;
-	top: -5px;
-  width: 10px;
-  height: 10px;
-	border-radius: 50%;
-  background-color: #00ffd9;
-}
-
-.sun {
-	width: 35px;
-	height: 35px;
-	border-radius: 50%;
-	background-color: #ec3700;
-}
-
-.leo {
-	position: absolute;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	border-radius: 50%;
-}
-
-.blue-orbit {
-	width: 165px;
-	height: 165px;
-  border: 1px solid #00a7faa5;
-  -webkit-animation: spin3D 3s linear .2s infinite;
-}
-
-.green-orbit {
-	width: 120px;
-	height: 120px;
-  border: 1px solid #00ff6aa5;
-  -webkit-animation: spin3D 2s linear 0s infinite;
-}
-
-.red-orbit {
-	width: 90px;
-	height: 90px;
-  border: 1px solid #ff8400a5;
-  -webkit-animation: spin3D 1s linear 0s infinite;
-}
-
-.white-orbit {
-	width: 60px;
-	height: 60px;
-  border: 2px solid #3f00d1;
-  -webkit-animation: spin3D 10s linear 0s infinite;
-}
-
-.w1 {
-  transform: rotate3D(1, 1, 1, 90deg);
-}
-
-.w2 {
-  transform: rotate3D(1, 2, .5, 90deg);
-}
-
-.w3 {
-  transform: rotate3D(.5, 1, 2, 90deg);
-}
-
-.three-quarter-spinner {
-  width: 50px;
-  height: 50px;
-  border: 3px solid #f14138;
-  border-top: 3px solid transparent;
+.head {
+  width: 97px;
+  height: 80px;
+  position: absolute;
+  z-index: 3;
+  background: -webkit-linear-gradient(left, #e3e8eb 0%, #e3e8eb 50%, #fbfdfa 50%, #fbfdfa 100%);
   border-radius: 50%;
-  animation: spin .5s linear 0s infinite;
+  top: 34px;
+  left: calc(50% - 47.5px);
 }
 
+.head:after {
+  content: "";
+  width: 60px;
+  height: 50px;
+  position: absolute;
+  top: calc(50% - 25px);
+  left: calc(50% - 30px);
+  background: -webkit-linear-gradient(top, #15aece 0%, #15aece 50%, #0391bf 50%, #0391bf 100%);
+  border-radius: 15px;
+}
+
+.head:before {
+  content: "";
+  width: 12px;
+  height: 25px;
+  position: absolute;
+  top: calc(50% - 12.5px);
+  left: -4px;
+  background-color: #618095;
+  border-radius: 5px;
+  box-shadow: 92px 0px 0px #618095;
+}
+
+.body {
+  width: 85px;
+  height: 100px;
+  position: absolute;
+  z-index: 2;
+  background-color: #fffbff;
+  border-radius: 40px / 20px;
+  top: 105px;
+  left: calc(50% - 41px);
+  background: -webkit-linear-gradient(left, #e3e8eb 0%, #e3e8eb 50%, #fbfdfa 50%, #fbfdfa 100%);
+}
+
+.panel {
+  width: 60px;
+  height: 40px;
+  position: absolute;
+  top: 20px;
+  left: calc(50% - 30px);
+  background-color: #b7cceb;
+}
+
+.panel:before {
+  content: "";
+  width: 30px;
+  height: 5px;
+  position: absolute;
+  top: 9px;
+  left: 7px;
+  background-color: #fbfdfa;
+  box-shadow: 0px 9px 0px #fbfdfa, 0px 18px 0px #fbfdfa;
+}
+
+.panel:after {
+  content: "";
+  width: 8px;
+  height: 8px;
+  position: absolute;
+  top: 9px;
+  right: 7px;
+  background-color: #fbfdfa;
+  border-radius: 50%;
+  box-shadow: 0px 14px 0px 2px #fbfdfa;
+}
+
+.arm {
+  width: 80px;
+  height: 30px;
+  position: absolute;
+  top: 121px;
+  z-index: 2;
+}
+
+.arm-left {
+  left: 30px;
+  background-color: #e3e8eb;
+  border-radius: 0 0 0 39px;
+}
+
+.arm-right {
+  right: 30px;
+  background-color: #fbfdfa;
+  border-radius: 0 0 39px 0;
+}
+
+.arm-left:before,
+.arm-right:before {
+  content: "";
+  width: 30px;
+  height: 70px;
+  position: absolute;
+  top: -40px;
+}
+
+.arm-left:before {
+  border-radius: 50px 50px 0px 120px / 50px 50px 0 110px;
+  left: 0;
+  background-color: #e3e8eb;
+}
+
+.arm-right:before {
+  border-radius: 50px 50px 120px 0 / 50px 50px 110px 0;
+  right: 0;
+  background-color: #fbfdfa;
+}
+
+.arm-left:after,
+.arm-right:after {
+  content: "";
+  width: 30px;
+  height: 10px;
+  position: absolute;
+  top: -24px;
+}
+
+.arm-left:after {
+  background-color: #6e91a4;
+  left: 0;
+}
+
+.arm-right:after {
+  right: 0;
+  background-color: #b6d2e0;
+}
+
+.leg {
+  width: 30px;
+  height: 40px;
+  position: absolute;
+  z-index: 2;
+  bottom: 70px;
+}
+
+.leg-left {
+  left: 76px;
+  background-color: #e3e8eb;
+  transform: rotate(20deg);
+}
+
+.leg-right {
+  right: 73px;
+  background-color: #fbfdfa;
+  transform: rotate(-20deg);
+}
+
+.leg-left:before,
+.leg-right:before {
+  content: "";
+  width: 50px;
+  height: 25px;
+  position: absolute;
+  bottom: -26px;
+}
+
+.leg-left:before {
+  left: -20px;
+  background-color: #e3e8eb;
+  border-radius: 30px 0 0 0;
+  border-bottom: 10px solid #6d96ac;
+}
+
+.leg-right:before {
+  right: -20px;
+  background-color: #fbfdfa;
+  border-radius: 0 30px 0 0;
+  border-bottom: 10px solid #b0cfe4;
+}
 

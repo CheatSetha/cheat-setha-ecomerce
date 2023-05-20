@@ -1,6 +1,7 @@
 "use client"
 import axios from "axios"
 import { ErrorMessage, Field, Form, Formik, useFormik } from "formik"
+import { useRouter } from "next/navigation"
 import React, { useEffect, useState } from "react"
 import * as Yup from "yup"
 
@@ -45,6 +46,7 @@ const handleUploadImage = async (values) => {
 			values.file
 		)
 		console.log(response)
+		
 
 		return (
 			response.data.location ||
@@ -99,7 +101,8 @@ function CustomInput({ field, form, isSubmitting, ...props }) {
 	)
 }
 
-const page = async () => {
+const Page = async () => {
+	const router = useRouter();
 
 	const handleCreateProduct = async (product) => {
 		const { title, price, description, categoryId, images } = product
@@ -123,7 +126,10 @@ const page = async () => {
 
 		fetch("https://api.escuelajs.co/api/v1/products/", requestOptions)
 			.then((response) => response.json())
-			.then((result) => console.log(result), alert("create product success"))
+			.then((result) => console.log(result),
+			alert("create product success"),
+			router.push("/")
+			)
 
 			.catch((error) => console.log("error", error))
 	}
@@ -253,4 +259,4 @@ const page = async () => {
 	)
 }
 
-export default page
+export default Page

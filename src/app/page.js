@@ -63,7 +63,7 @@ export default async function Home() {
 				className=' fixed right-1 bottom-1 z-50 p-5'
 			>
 				<img
-					className='w-32'
+					className='w-20 md:w-32'
 					src='/images/add.png'
 				/>
 			</Link>

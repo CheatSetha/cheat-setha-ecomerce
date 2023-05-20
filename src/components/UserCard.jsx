@@ -1,6 +1,6 @@
 import React from "react";
 
-const UserCard = ({name, role,avatar,email}) => {
+const UserCard = ({name, role,avatar,email,id}) => {
   return (
     <div className="card md:w-72 bg-base-100 shadow-xl">
       <div className="card-body">
@@ -14,6 +14,7 @@ const UserCard = ({name, role,avatar,email}) => {
         <h2 className="card-title flex justify-center">{name? name : "setha"}</h2>
         <p> email : {email?email: "setha@gmail.com"}</p>
         <p>role : {role?role:" admin"}</p>
+        <p>user id :{id} </p>
       </div>
     </div>
   );

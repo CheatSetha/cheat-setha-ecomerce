@@ -23,15 +23,16 @@ const Card = ({ id, title, desc, price, img }) => {
 	// handle delete products
 	const handleDeleteProduct = async (id) => {
 		const res = await fetch(`https://api.escuelajs.co/api/v1/products/${id}`,{method:'DELETE'})
-		router.refresh()
-		const data = await res.json()
-		console.log(data)
 		
+		const data = await res.json()
+		alert("product delete successfully")
+		router.refresh()
 		
 	}
 
+
 	return (
-		<div className='card md:max-w-xs bg-base-100 shadow-xl'>
+		<div className='card  md:max-w-xs bg-base-100 shadow-xl'>
 			<MdOutlineReorder
 				onClick={setShowModal}
 				className='absolute right-1 top-1 text-sky-950 text-2xl cursor-pointer'
@@ -65,7 +66,7 @@ const Card = ({ id, title, desc, price, img }) => {
 					</h2>
 					<small> {id}</small>
 					<small className='text-red-800'>$ {price ? price : "free"}</small>
-					<p>{desc ? desc : "あなたのこと大好き"}</p>
+					<p className="line-clamp-3">{desc ? desc : "あなたのこと大好き"}</p>
 				</div>
 			</Link>
 		</div>

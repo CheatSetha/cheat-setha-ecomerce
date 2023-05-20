@@ -39,7 +39,7 @@ const page = async ({params}) => {
     const categoyById = await getCategoryById(id)
 
   return (
-    <div className='w-full'>
+    <div className='w-[90%] mx-auto'>
        <h1 className='text-center text-4xl font-bold my-5 w-full'>{categoyById.name} </h1>
       <div className='flex flex-wrap justify-center gap-5'>
        
