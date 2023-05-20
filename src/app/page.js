@@ -12,8 +12,8 @@ export const metadata = {
 
 export async function fetchData() {
 	const res = await fetch(
-		"https://api.escuelajs.co/api/v1/products?limit=20&offset=180",
-		{ cache: "no-store" }
+		"https://api.escuelajs.co/api/v1/products?limit=20&offset=0",
+		{cache: "no-store" }
 	)
 	const data = await res.json()
 	return data
@@ -81,11 +81,11 @@ export default async function Home() {
 			</div>
 
 			{/* list product  */}
-			<h1 className='font-bold text-2xl my-5'>Our Products</h1>
+			<h1 className='font-bold text-2xl my-5'>Our Products{products.length} </h1>
 
-			<div className='flex flex-wrap justify-between'>
+			<div className='flex flex-wrap justify-between'> 
 				<div className='flex flex-wrap   mx-auto gap-3 w-full md:w-10/12'>
-					{sortedProducts.map((product) => (
+					{products.map((product) => (
 						<Card
 							key={product.id}
 							title={product.title}
@@ -97,8 +97,8 @@ export default async function Home() {
 					))}
 				</div>
 
-				<div className=' w-full md:w-2/12 space-y-5'>
-					<h1 className='text-center font-bold text-2xl'>Top users</h1>
+				<aside className=' w-full md:w-2/12 space-y-5'>
+					<h4 className='text-center font-bold text-2xl'>Top users</h4>
 					{users.map((u) => (
 						<UserCard
 							key={u.id}
@@ -108,7 +108,7 @@ export default async function Home() {
 							role={u.role}
 						/>
 					))}
-				</div>
+				</aside>
 			</div>
 		</main>
 	)
