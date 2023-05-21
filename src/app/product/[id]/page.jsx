@@ -24,11 +24,15 @@ export async function generateMetadata({ params, searchParams }, parent) {
     image: product.images,
     openGraph: {
       type: 'website',
-      
       url: `https://escuelajs.co/product/${id}`,
       title: product.title,
       description: product.description,
-      image: product.images,
+      images: [
+        {
+          url: product.images,
+          width: 800,
+          height: 600,
+        },],
     },
   
     
