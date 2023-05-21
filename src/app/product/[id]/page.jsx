@@ -21,13 +21,14 @@ export async function generateMetadata({ params, searchParams }, parent) {
   return {
     title: product.title,
     description: product.description,
-    image: product.images[0],
+    image: product.images,
     openGraph: {
       type: 'website',
+      
       url: `https://escuelajs.co/product/${id}`,
       title: product.title,
       description: product.description,
-      image: product.images[0],
+      image: product.images,
     },
   
     
