@@ -29,13 +29,7 @@ export async function generateMetadata({ params, searchParams }, parent) {
       description: product.description,
       image: product.images[0],
     },
-    // for facebook and google
-    additionalMetaTags: [
-      {
-        property: 'keywords',
-        content: product.tags.join(','),
-      },
-    ],
+  
     
    
   };
