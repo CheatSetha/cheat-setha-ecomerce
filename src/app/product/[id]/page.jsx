@@ -22,6 +22,20 @@ export async function generateMetadata({ params, searchParams }, parent) {
     title: product.title,
     description: product.description,
     image: product.images[0],
+    openGraph: {
+      type: 'website',
+      url: `https://escuelajs.co/product/${id}`,
+      title: product.title,
+      description: product.description,
+      image: product.images[0],
+    },
+    // for facebook and google
+    additionalMetaTags: [
+      {
+        property: 'keywords',
+        content: product.tags.join(','),
+      },
+    ],
     
    
   };
