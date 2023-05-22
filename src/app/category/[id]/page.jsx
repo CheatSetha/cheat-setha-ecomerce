@@ -22,16 +22,16 @@ export async function generateMetadata({ params }) {
 	const category = await getCategoryById(id)
 	return {
 		title: category.name,
-		description: category.description,
-		image: category.thumbnail,
+		description: category.name,
+		image: category.image,
 		openGraph: {
 			type: "website",
 			url: `https://escuelajs.co/category/${id}`,
 			title: category.name,
-			description: category.description,
+			description: category.name,
 			images: [
 				{
-					url: category.thumbnail,
+					url: category.image,
 					width: 800,
 					height: 600,
 				},
@@ -57,10 +57,10 @@ const page = async ({ params }) => {
 			</h1>
 			<div className='flex flex-wrap justify-center gap-5'>
 				{productByCategory.length < 1 ? (
-					<h1 className='text-center'>
+					<p className='text-center'>
 						{" "}
 						there are no product available for {categoyById.name}
-					</h1>
+					</p>
 				) : (
 					productByCategory.map((product) => {
 						return (

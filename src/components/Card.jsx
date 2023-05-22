@@ -18,9 +18,9 @@ const Card = ({ id, title, desc, price, img }) => {
 					/>
 				</figure>
 				<div className='card-body'>
-					<h2 className='card-title'>
+					<h1 className='card-title'>
 						{title ? title : "おはようございます。"}
-					</h2>
+					</h1>
 					<small> {id}</small>
 					<small className='text-red-800'>$ {price ? price : "free"}</small>
 					<p className="line-clamp-3">{desc ? desc : "あなたのこと大好き"}</p>
