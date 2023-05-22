@@ -2,56 +2,13 @@
 import axios from "axios"
 import { Imprima } from "next/font/google"
 import Link from "next/link"
-import { useRouter } from "next/navigation"
+
 import React, { useState } from "react"
-import { MdOutlineReorder } from "react-icons/md"
+
 
 const Card = ({ id, title, desc, price, img }) => {
-	const router = useRouter();
-	// place to define state
-	const [show, setShow] = useState(false)
-	console.log(id)
-
-	// function
-
-	// click and show modal
-
-	const setShowModal = () => {
-		setShow(!show)
-	}
-
-	// handle delete products
-	const handleDeleteProduct = async (id) => {
-		const res = await fetch(`https://api.escuelajs.co/api/v1/products/${id}`,{method:'DELETE'})
-		
-		const data = await res.json()
-		alert("product delete successfully")
-		router.refresh()
-		
-	}
-
-
 	return (
 		<div className='card  md:max-w-xs bg-base-100 shadow-xl'>
-			<MdOutlineReorder
-				onClick={setShowModal}
-				className='absolute right-1 top-1 text-sky-950 text-2xl cursor-pointer'
-			/>
-			<div
-				className={
-					show
-						? "flex flex-col w-44 space-y-5 bg-slate-700 p-5 rounded-xl absolute top-8 right-0"
-						: " hidden "
-				}
-			>
-				<button
-					onClick={() => handleDeleteProduct(id)}
-					className='btn btn-error'
-				>
-					Delete{" "}
-				</button>
-				<button className='btn btn-primary'>Edite</button>
-			</div>
 			<Link href={`/product/${id}`}>
 				<figure>
 					<img

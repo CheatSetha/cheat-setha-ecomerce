@@ -7,7 +7,7 @@ export async function getProductDetails(id) {
 	return data
 }
 
-export async function generateMetadata({ params, searchParams }, parent) {
+export async function generateMetadata({ params }) {
 	// read route params
 	const id = params.id
 
@@ -20,6 +20,8 @@ export async function generateMetadata({ params, searchParams }, parent) {
 		image: product.images,
 		openGraph: {
 			type: "website",
+			
+			
 			url: `https://escuelajs.co/product/${id}`,
 			title: product.title,
 			description: product.description,
