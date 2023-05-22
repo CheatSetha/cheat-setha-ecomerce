@@ -7,6 +7,20 @@ import { useRouter } from "next/navigation"
 import React, { useEffect, useState } from "react"
 import * as Yup from "yup"
 
+
+export async function generateMetadata({ params, searchParams }, parent) {
+	return {
+		title: "Sign Up",
+		description: "Sign Up",
+		openGraph: {
+			type: "website",
+			url: `/sign-up`,
+			title: "Sign Up",
+			description: "Sign Up",
+		},
+	}
+}
+
 const validationSchema = Yup.object({
 	email: Yup.string().email().required("កាក​​ មិនអាចទទេបានទេ"),
 	name: Yup.string().required("កាក​​ មិនអាចទទេបានទេ"),

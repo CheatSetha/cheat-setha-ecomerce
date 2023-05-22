@@ -5,6 +5,9 @@ import { useRouter } from "next/navigation"
 import React, { useEffect, useState } from "react"
 import * as Yup from "yup"
 
+// metadata
+
+
 
 //  create new product validation
 const validationSchema = Yup.object({

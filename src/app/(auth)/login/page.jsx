@@ -1,7 +1,19 @@
 import { usePathname } from "next/navigation"
 import React from "react"
+// meta data
+export const metadata = {	
+	title: "Login",
+	description: "Login",
+	openGraph: {
+		type: "website",
+		url: `/login`,
+		title: "Login",
+		description: "Login",
+	},
+}
 
 const page = () => {
+
 
 	return (
 		<div className='hero min-h-screen bg-base-200'>
