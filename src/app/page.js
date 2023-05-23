@@ -1,26 +1,23 @@
+import Banner from "@/components/Banner"
 import Card from "@/components/Card"
 import CategoryCard from "@/components/CategoryCard"
 import UserCard from "@/components/UserCard"
 import Link from "next/link"
 
+
+
 // set static meta data
 export const metadata = {
 	title: "ISTAD - Home",
 	description: 'This is my app',
+	images: "/images/alien.png",
 	
 	
 	openGraph: {
 	  title: 'ISTAD-HOME',
 	  description: 'This is my app',
 	  url: 'https://next-v13-with-form-upload-file.vercel.app/',
-	  siteName: 'My App',
-	  images: [
-		{
-		  url: 'https://myapp.com/og.png',
-		  width: 800,
-		  height: 600,
-		},
-	  ],
+	  images: "/images/alien.png",
 	},
 	twitter: {
 	  title: 'My App',
@@ -85,6 +82,12 @@ export default async function Home() {
 					alt="add product"
 				/>
 			</Link>
+
+
+			{/* banner section */}
+			<Banner />
+
+			{/* end of banner */}
 			{/* list of category */}
 			<h1 className='text-3xl font-bold my-4'> Category list</h1>
 			<div className='flex space-x-3 flex-wrap'>
@@ -99,10 +102,11 @@ export default async function Home() {
 			</div>
 
 			{/* list product  */}
-			<h1 className='font-bold text-2xl my-5'>Our Products{products.length} </h1>
+			<h1 className='font-bold text-2xl my-7'>Our Products {products.length} </h1>
+		
 
-			<div className='flex flex-wrap justify-between'> 
-				<div className='flex flex-wrap   mx-auto gap-3 w-full md:w-10/12'>
+			<div > 
+				<div className='flex flex-wrap justify-center  mx-auto gap-3 w-full '>
 					{products.map((product) => (
 						<Card
 							key={product.id}
@@ -114,9 +118,10 @@ export default async function Home() {
 						/>
 					))}
 				</div>
+				<h4 className=' font-bold text-center  my-7 text-3xl'>Top users</h4>
 
-				<aside className=' w-full md:w-2/12 space-y-5'>
-					<h4 className='text-center font-bold text-2xl'>Top users</h4>
+				<div className=' w-full justify-center flex flex-wrap gap-3 '>
+					
 					{users.map((u) => (
 						<UserCard
 							key={u.id}
@@ -126,7 +131,8 @@ export default async function Home() {
 							role={u.role}
 						/>
 					))}
-				</aside>
+				</div>
+				
 			</div>
 		</main>
 	)
